@@ -31,7 +31,8 @@ public class OneFragment extends Fragment {
         mWebView.getSettings().setLoadsImagesAutomatically(true);
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-        mWebView.loadUrl("http://www.tutorialspoint.com");
+
+        mWebView.loadUrl("http://www.24h.com.vn");
 
         mWebView.setWebViewClient(new WebViewClient() {
             @Override
