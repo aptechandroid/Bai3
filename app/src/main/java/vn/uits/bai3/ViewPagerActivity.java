@@ -41,7 +41,7 @@ public class ViewPagerActivity extends AppCompatActivity {
     }
 
     /**
-     * data 
+     * data
      */
     private void dataFragment() {
         mList.clear();
