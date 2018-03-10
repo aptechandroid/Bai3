@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import vn.uits.bai3.fragment.OneFragment;
+import vn.uits.bai3.fragment.ThreeFragment;
+import vn.uits.bai3.fragment.TwoFragment;
 
 /**
  * Copyright © 2017 BAP CO., LTD
@@ -21,6 +23,20 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.navigation_home:
+                    replaceFragment(new OneFragment());
+                    break;
+
+                case R.id.navigation_dashboard:
+                    replaceFragment(new TwoFragment());
+                    break;
+
+                case R.id.navigation_notifications:
+                    replaceFragment(new ThreeFragment());
+                    break;
+
+            }
             return false;
         }
     };
@@ -32,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         mNavigationView = findViewById(R.id.navigation);
         mNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        replaceFragment(new OneFragment());
+        addFragment(new OneFragment());
     }
 
 
