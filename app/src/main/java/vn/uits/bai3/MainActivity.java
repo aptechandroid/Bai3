@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.annimation_in, R.anim.annimation_hold);
         setContentView(R.layout.activity_main);
 
         mNavigationView = findViewById(R.id.navigation);

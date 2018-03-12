@@ -29,6 +29,7 @@ public class ViewPagerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(0, 0);
         setContentView(R.layout.activity_viewpager);
         mTabLayout = findViewById(R.id.mTabLayout);
         mViewPager = findViewById(R.id.mViewPager);
