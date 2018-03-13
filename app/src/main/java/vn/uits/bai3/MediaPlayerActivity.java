@@ -88,7 +88,7 @@ public class MediaPlayerActivity extends AppCompatActivity implements MediaPlaye
                 mHandler.postDelayed(mRunnable, 1000);
             }
         };
-        
+
         mHandler.postDelayed(mRunnable, 1000);
     }
 
