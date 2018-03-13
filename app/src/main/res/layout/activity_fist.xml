@@ -15,4 +15,10 @@
         android:layout_height="wrap_content"
         android:onClick="onViewPager"
         android:text="ViewPager" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onMediaPlayer"
+        android:text="MediaPlayer" />
 </android.support.v7.widget.LinearLayoutCompat>

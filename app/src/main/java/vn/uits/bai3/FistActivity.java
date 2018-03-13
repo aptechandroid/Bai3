@@ -28,4 +28,9 @@ public class FistActivity extends AppCompatActivity {
         Intent fragment = new Intent(this, MainActivity.class);
         startActivity(fragment);
     }
+
+    public void onMediaPlayer(View view) {
+        Intent media = new Intent(this, MediaPlayerActivity.class);
+        startActivity(media);
+    }
 }
