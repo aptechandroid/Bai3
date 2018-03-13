@@ -165,4 +165,17 @@ public class MediaPlayerActivity extends AppCompatActivity implements MediaPlaye
     public void onPrepared(MediaPlayer mp) {
         mp.start();
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        killMediaPlayer();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        killMediaPlayer();
+        mMediaPlayer = null;
+    }
 }
