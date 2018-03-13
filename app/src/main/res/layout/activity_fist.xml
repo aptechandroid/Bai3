@@ -21,4 +21,18 @@
         android:layout_height="wrap_content"
         android:onClick="onMediaPlayer"
         android:text="MediaPlayer" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onTakePhoto"
+        android:text="Take Photo" />
+
+    <ImageView
+        android:id="@+id/mImgThumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:src="@mipmap/ic_launcher" />
 </android.support.v7.widget.LinearLayoutCompat>
