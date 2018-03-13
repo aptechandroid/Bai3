@@ -36,7 +36,7 @@ public class ViewPagerActivity extends AppCompatActivity {
 
         mAdapter = new ViewPagerAdapter(getSupportFragmentManager(), mList);
         mViewPager.setAdapter(mAdapter);
-        mViewPager.setOffscreenPageLimit(3);
+        mViewPager.setOffscreenPageLimit(0);
         mTabLayout.setupWithViewPager(mViewPager);
         dataFragment();
     }

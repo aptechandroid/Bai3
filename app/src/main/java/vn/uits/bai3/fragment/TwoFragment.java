@@ -29,6 +29,7 @@ public class TwoFragment extends Fragment {
         mVideoView = mView.findViewById(R.id.mVideoView);
         Uri uri = Uri.parse("http://abhiandroid-8fb4.kxcdn.com/ui/wp-content/uploads/2016/04/videoviewtestingvideo.mp4");
         mVideoView.setVideoURI(uri);
+        // media player
         mVideoView.setMediaController(new MediaController(getActivity()));
         mVideoView.requestFocus();
         mVideoView.start();
