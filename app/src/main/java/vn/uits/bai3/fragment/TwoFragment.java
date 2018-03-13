@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.MediaController;
 import android.widget.VideoView;
 
 import vn.uits.bai3.R;
@@ -28,6 +29,8 @@ public class TwoFragment extends Fragment {
         mVideoView = mView.findViewById(R.id.mVideoView);
         Uri uri = Uri.parse("http://abhiandroid-8fb4.kxcdn.com/ui/wp-content/uploads/2016/04/videoviewtestingvideo.mp4");
         mVideoView.setVideoURI(uri);
+        mVideoView.setMediaController(new MediaController(getActivity()));
+        mVideoView.requestFocus();
         mVideoView.start();
         return mView;
     }
