@@ -7,27 +7,35 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+
+import vn.uits.bai3.Observer.ObserverImpl;
+import vn.uits.bai3.Observer.RepositoryObserver;
 
 /**
  * Copyright © 2017 BAP CO., LTD
  * Created by PHUQUY on 3/10/18.
  */
 
-public class FistActivity extends AppCompatActivity {
+public class FistActivity extends AppCompatActivity implements RepositoryObserver {
 
     private static final int REQUEST_TAKE_PHOTO = 100;
     private static final int REQUEST_CROP_PHOTO = 101;
     private Uri mUri;
 
     private ImageView mImgThumbnail;
+    private ObserverImpl mObserver;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fist);
         mImgThumbnail = findViewById(R.id.mImgThumbnail);
+
+        mObserver = ObserverImpl.getInstance();
+        mObserver.registerObserver(this);
     }
 
     public void onViewPager(View view) {
@@ -80,5 +88,16 @@ public class FistActivity extends AppCompatActivity {
         copImage.putExtra("return-data", true);
 
         startActivityForResult(copImage, REQUEST_CROP_PHOTO);
+    }
+
+    @Override
+    public void onUserDataChanged(String name, int age) {
+        Log.d("xxx", "onUserDataChanged: " + name + "     " + age);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mObserver.removeObserver(this);
     }
 }
