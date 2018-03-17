@@ -1,5 +1,7 @@
 package vn.uits.bai3;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -10,9 +12,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import vn.uits.bai3.Observer.ObserverImpl;
 import vn.uits.bai3.Observer.RepositoryObserver;
+import vn.uits.bai3.reciver.BCReceiver;
+import vn.uits.bai3.services.StartSrevices;
 
 /**
  * Copyright © 2017 BAP CO., LTD
@@ -36,6 +41,7 @@ public class FistActivity extends AppCompatActivity implements RepositoryObserve
 
         mObserver = ObserverImpl.getInstance();
         mObserver.registerObserver(this);
+
     }
 
     public void onViewPager(View view) {
@@ -48,15 +54,61 @@ public class FistActivity extends AppCompatActivity implements RepositoryObserve
         startActivity(fragment);
     }
 
+    /**
+     * media player
+     *
+     * @param view
+     */
     public void onMediaPlayer(View view) {
         Intent media = new Intent(this, MediaPlayerActivity.class);
         startActivity(media);
     }
 
+    /**
+     * take photo
+     *
+     * @param view
+     */
     public void onTakePhoto(View view) {
         Intent takePhoto = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(takePhoto, REQUEST_TAKE_PHOTO);
     }
+
+    /**
+     * start service
+     *
+     * @param view
+     */
+    public void onStartService(View view) {
+        Intent service = new Intent(this, StartSrevices.class);
+        startService(service);
+    }
+
+    /**
+     * stop service
+     *
+     * @param view
+     */
+    public void onStopService(View view) {
+        Intent service = new Intent(this, StartSrevices.class);
+        stopService(service);
+    }
+
+    /**
+     * start receiver
+     *
+     * @param view
+     */
+    public void onReceiver(View view) {
+        Intent intent = new Intent(this, BCReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 100, intent, 0);
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (4 * 1000), pendingIntent);
+
+        Toast.makeText(this, "4 Seconds Send BroadCast", Toast.LENGTH_SHORT).show();
+    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

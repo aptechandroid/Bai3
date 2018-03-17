@@ -10,6 +10,9 @@
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
+    // receiver
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -33,6 +36,13 @@
         <activity android:name=".ViewPagerActivity" />
 
         <activity android:name=".MediaPlayerActivity" />
+
+        <service android:name=".services.InServices" />
+        <service android:name=".services.StartSrevices" />
+
+        <receiver
+            android:name=".reciver.BCReceiver"
+            android:enabled="true" />
     </application>
 
 </manifest>
